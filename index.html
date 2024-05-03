@@ -4,18 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications</title>
+    <style>
+        *{
+            background-color: bisque;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-<<<<<<< HEAD
     <form action="/checking.js" method="get">
-        Enter the Your unique ID:
-        <input type="text" name="rollno" id="rollno"> <br/> <br/>
-=======
-    <form action="checking.js" method="post">
-        Enter the Roll number: 
+        Enter the Roll number:
         <input type="text" name="rollno" id="rollno"> <br/>
->>>>>>> parent of 479cdd3 (_gitcommit: making it pretty)
         <input type="submit" name="submit" value="Submit">
     </form>
+    <script>
+
+        const form = document.querySelector('form');
+
+        const rollnoInput = document.querySelector('#rollno');
+
+
+        form.addEventListener('submit', (e) => {
+
+            e.preventDefault(); // prevent default form submission
+
+
+            const rollno = rollnoInput.value.trim();
+
+            const pdfUrl = `/certificates/${rollno}.pdf`; // assuming PDF files are in /certificates folder
+
+
+            // redirect to the PDF file
+
+            window.location.href = pdfUrl;
+
+        });
+
+    </script>
 </body>
 </html>
